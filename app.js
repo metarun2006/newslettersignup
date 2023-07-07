@@ -1,6 +1,7 @@
 const express = require("express")
 const https = require("https")
 const mailchimp = require("@mailchimp/mailchimp_marketing")
+require('dotenv').config();
  
 const app = express()
 app.use(express.static("public"))
@@ -11,7 +12,7 @@ app.get("/", function (req, res) {
 })
  
 mailchimp.setConfig({
-  apiKey:"95293b28d28b9f5ab518d7d492988e94-us21",/*<-----your api key*/
+  apiKey: process.env.KEY,/*<-----your api key*/
   server: "us21"/*<----Use your server prefix*/
 })
  
